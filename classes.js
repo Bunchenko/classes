@@ -19,6 +19,9 @@ class Container {
 class Section extends Container {
     constructor(styleObject) {
         super(styleObject);
+        styleObject.display = 'flex';
+        styleObject.alignItems = 'center';
+        styleObject.justifyContent = 'center';
     }
 
     appendElement(element) {
@@ -33,7 +36,7 @@ class Section extends Container {
 class Content extends Section {
     constructor(styleObject) {
         super(styleObject);
-        this.$elem = document.createElement('img');
+        this.$elem = document.createElement('span');
     }
 }
 
@@ -45,10 +48,10 @@ function setStyleAndAppend(elementToStyle, elementToAppendIn) {
 }
 
 
-let arrayOfImages = [
+let arrayOfElements = [
     'https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/test.png',
-    'https://st.depositphotos.com/1032577/3238/i/450/depositphotos_32382611-stock-photo-test.jpg',
-    1
+    'https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/test.png',
+    1, 2
 ];
 
 
@@ -71,7 +74,6 @@ const bottomSection = new Section ({
     bottom: 0,
     left: 0, 
     color: 'white',
-    textAlign: 'center',
 })
 
 setStyleAndAppend(bottomSection, mainContainer);
@@ -79,7 +81,7 @@ bottomSection.createText('Some text in here');
 
 
 
-switch (arrayOfImages.length) {
+switch (arrayOfElements.length) {
     case 1:
         const centeredSection = new Section ({
             height: '80%',
@@ -91,7 +93,7 @@ switch (arrayOfImages.length) {
         })
 
         const contentImage = new Content({
-            content: `url(${arrayOfImages[0]}) / 'Test picture'`,
+            content: `url(${arrayOfElements[0]}) / 'Test picture'`,
             width: '200px',
             height: '200px',
         })
@@ -111,7 +113,7 @@ switch (arrayOfImages.length) {
         })
 
         const contentImageLeftSection = new Content({
-            content: `url(${arrayOfImages[0]}) / 'Test picture'`,
+            content: `url(${arrayOfElements[0]}) / 'Test picture'`,
             width: '100px',
             height: '100px',
         })
@@ -125,7 +127,7 @@ switch (arrayOfImages.length) {
         })
 
         const contentImageRightSection = new Content({
-            content: `url(${arrayOfImages[1]}) / 'Test picture'`,
+            content: `url(${arrayOfElements[1]}) / 'Test picture'`,
             width: '100px',
             height: '100px',
         })
@@ -149,9 +151,10 @@ switch (arrayOfImages.length) {
         })
 
         const contentImageLeftDefaultSection = new Content({
-            content: `url(${arrayOfImages[0]}) / 'Test picture'`,
+            content: `url(${arrayOfElements[0]}) / 'Test picture'`,
             width: '100px',
             height: '100px',
+            color: 'white',
         })
     
         const rightTopSection = new Section ({
@@ -163,7 +166,7 @@ switch (arrayOfImages.length) {
         })
 
         const contentImageRightTopSection = new Content({
-            content: `url(${arrayOfImages[1]}) / 'Test picture'`,
+            content: `url(${arrayOfElements[1]}) / 'Test picture'`,
             width: '100px',
             height: '100px',
         })
@@ -177,11 +180,9 @@ switch (arrayOfImages.length) {
             top: '40%',
         })
 
-        // const contentImageRightBottomSection = new Content({
-        //     content: `url(${arrayOfImages[1]})`,
-        //     width: '100px',
-        //     height: '100px',
-        // })
+        const contentRightBottomSection = new Content({
+            color: 'white',
+        })
         
         setStyleAndAppend(leftDefaultSection, mainContainer);
 
@@ -192,6 +193,9 @@ switch (arrayOfImages.length) {
         setStyleAndAppend(rightTopSection, mainContainer);
 
         setStyleAndAppend(rightBottomSection, mainContainer);
+
+        setStyleAndAppend(contentRightBottomSection, rightBottomSection);
+        contentRightBottomSection.createText(`And more ${arrayOfElements.length - 2} element(s)`);
     break;
 }
 
