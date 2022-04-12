@@ -47,7 +47,8 @@ function setStyleAndAppend(elementToStyle, elementToAppendIn) {
 
 let arrayOfImages = [
     'https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/test.png',
-    'https://st.depositphotos.com/1032577/3238/i/450/depositphotos_32382611-stock-photo-test.jpg'
+    'https://st.depositphotos.com/1032577/3238/i/450/depositphotos_32382611-stock-photo-test.jpg',
+    1
 ];
 
 
@@ -69,13 +70,12 @@ const bottomSection = new Section ({
     backgroundColor: 'black',
     bottom: 0,
     left: 0, 
-    content: "Some text",
     color: 'white',
     textAlign: 'center',
 })
 
 setStyleAndAppend(bottomSection, mainContainer);
-// bottomSection.createText('Some text in here');
+bottomSection.createText('Some text in here');
 
 
 
@@ -85,7 +85,7 @@ switch (arrayOfImages.length) {
             height: '80%',
             width: '100%',
             position: 'absolute',
-            backgroundColor: 'green',
+            backgroundColor: 'rgb(157, 10, 224)',
             bottom: 100,
             left: 0,
         })
@@ -106,7 +106,7 @@ switch (arrayOfImages.length) {
             height: '80%',
             width: '50%',
             position: 'absolute',
-            backgroundColor: 'green',
+            backgroundColor: 'rgb(157, 10, 224)',
             left: 0,
         })
 
@@ -120,7 +120,7 @@ switch (arrayOfImages.length) {
             height: '80%',
             width: '50%',
             position: 'absolute',
-            backgroundColor: 'blue',
+            backgroundColor: 'rgb(114, 167, 124)',
             right: 0,
         })
 
@@ -144,7 +144,7 @@ switch (arrayOfImages.length) {
             height: '80%',
             width: '50%',
             position: 'absolute',
-            backgroundColor: 'green',
+            backgroundColor: 'rgb(157, 10, 224)',
             left: 0,
         })
 
@@ -158,7 +158,7 @@ switch (arrayOfImages.length) {
             height: '40%',
             width: '50%',
             position: 'absolute',
-            backgroundColor: 'blue',
+            backgroundColor: 'rgb(114, 167, 124)',
             right: 0,
         })
 
