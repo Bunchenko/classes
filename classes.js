@@ -1,4 +1,13 @@
+
+const html = document.querySelector('html');
 const body = document.querySelector('body');
+
+html.style.height = '90vh';
+body.style.display = 'flex';
+body.style.alignItems = 'center';
+body.style.justifyContent = 'center';
+body.style.height = '90vh'
+
 
 class Container {
     constructor(styleObject) {
